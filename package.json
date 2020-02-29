@@ -1,5 +1,5 @@
 {
-  "name": "Plexus Test",
+  "name": "plexus-test",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,9 +17,6 @@
     "url": "https://github.com/datvu-dev/plexus-test/issues"
   },
   "homepage": "https://github.com/datvu-dev/plexus-test#readme",
-  "keywords": [],
-  "author": "Dat Vu",
-  "license": "ISC",
   "dependencies": {
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
@@ -30,6 +27,7 @@
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
     "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   }
 }
