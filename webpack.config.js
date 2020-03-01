@@ -9,7 +9,7 @@ module.exports = {
   	// set output for the webpack build
     path: path.resolve(__dirname, 'dist'),
     // filename of the JS bundle
-    filename: 'bundle.js'
+    filename: 'scripts.js'
   },
   module: {
     rules: [
