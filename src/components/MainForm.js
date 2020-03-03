@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {withRouter} from "react-router-dom";
 import { useToasts } from 'react-toast-notifications'
+import Autocomplete from 'react-autocomplete'
  
 const MainForm = (props) => {
     const { addToast } = useToasts()
@@ -58,14 +59,32 @@ const MainForm = (props) => {
                 }
                 <div>
                     <label>
+                        Search user:
+                        <Autocomplete
+                            getItemValue={(item) => item.fullname}
+                            items={props.state.userList}
+                            shouldItemRender={(item, value) => item.fullname.toLowerCase().indexOf(value.toLowerCase()) > -1}
+                            renderItem={(item, isHighlighted) =>
+                                <div key={props.state.userList.indexOf(item)} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+                                    {item.fullname}
+                                </div>
+                            }
+                            name="userLookUp" 
+                            value={props.state.userLookUp} onChange={props.handleInputChange}
+                            onSelect={(value, item) => props.handleUserSelection(value, item)}
+                        />
+                    </label>
+                </div>
+                <div>
+                    <label>
                         First Name:
-                        <input type="text" name="firstName" value={props.state.firstName} onChange={props.handleInputChange}/>
+                        <input type="text" name="firstName" value={props.state.firstName} onChange={props.handleInputChange} disabled/>
                     </label>
                 </div>
                 <div>
                     <label>
                         Last Name:
-                        <input type="text" name="lastName" value={props.state.lastName} onChange={props.handleInputChange}/>
+                        <input type="text" name="lastName" value={props.state.lastName} onChange={props.handleInputChange} disabled/>
                     </label>
                 </div>
                 <input type="submit" value="Submit" />
