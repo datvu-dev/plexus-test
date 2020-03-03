@@ -21,6 +21,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "react": "^16.13.0",
+    "react-autocomplete": "^1.8.1",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
     "react-toast-notifications": "^2.4.0"
