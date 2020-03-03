@@ -6,6 +6,10 @@ const SecondaryForm = (props) => {
     const { addToast } = useToasts()
     let errorMessage = ''
 
+    const goBack = () => {
+        props.history.push('/')
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
 
@@ -74,6 +78,7 @@ const SecondaryForm = (props) => {
                         </label>
                     </div>
                 }           
+                <button onClick={goBack}>Back</button>
                 <input type="submit" value="Submit" />
             </form>
         </div>

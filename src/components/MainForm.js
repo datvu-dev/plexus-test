@@ -87,7 +87,7 @@ const MainForm = (props) => {
                         <input type="text" name="lastName" value={props.state.lastName} onChange={props.handleInputChange} disabled/>
                     </label>
                 </div>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Next" />
             </form>
         </div>
     );
