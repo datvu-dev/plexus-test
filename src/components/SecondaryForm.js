@@ -1,10 +1,37 @@
 import React, { Component } from "react";
 import {withRouter} from "react-router-dom"
+import { useToasts } from 'react-toast-notifications'
  
 const SecondaryForm = (props) => {
+    const { addToast } = useToasts()
+    let errorMessage = ''
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        switch (true) {
+            case (props.state.joinDate == ''):
+                errorMessage = 'Please specify when the user joined'
+                break
+            case (props.state.isInVictoria == ''):
+                errorMessage = 'Please confirm if the user is in Victoria'
+                break
+            case (props.state.isInVictoria == 'yes' && props.state.whereInVictoria == ''):
+                errorMessage = 'Please specify where the user lives in Victoria'
+                break
+        }
+
+        if (errorMessage == '') {
+            // If all inputs are valid, submit the form
+        } else {
+            // Otherwise, show error message
+            addToast(errorMessage, { appearance: 'error' })
+        }
+    }
+
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label>
                         What is the users role? 
@@ -39,12 +66,14 @@ const SecondaryForm = (props) => {
                         No
                     </label>
                 </div>
-                <div>
-                    <label>
-                        Where in Victoria?
-                        <input type="text" name="whereInVictoria" value={props.state.whereInVictoria} onChange={props.handleInputChange} />
-                    </label>
-                </div>
+                { props.state.isInVictoria == 'yes' &&
+                    <div>
+                        <label>
+                            Where in Victoria?
+                            <input type="text" name="whereInVictoria" value={props.state.whereInVictoria} onChange={props.handleInputChange} />
+                        </label>
+                    </div>
+                }           
                 <input type="submit" value="Submit" />
             </form>
         </div>
