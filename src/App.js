@@ -15,8 +15,9 @@ class App extends Component {
             firstName: '',
             lastName: '',
             userRole: '',
-            joinDate: null,
-
+            joinDate: '',
+            isInVictoria: '',
+            whereInVictoria: ''
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -80,7 +81,12 @@ class App extends Component {
                       handleUserSelection={this.handleUserSelection}
                   />} 
               />
-              <Route path="/next" component={SecondaryForm} />
+              <Route path="/next" render={() => 
+                  <SecondaryForm 
+                      state={this.state} 
+                      handleInputChange={this.handleInputChange}
+                  />}  
+              />
             </div>
           </Router>
         </div>
