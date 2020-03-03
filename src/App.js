@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Route, Link, BrowserRouter as Router} from "react-router-dom";
+import {Route, BrowserRouter as Router, useHistory} from "react-router-dom";
 import MainForm from "./components/MainForm";
 import SecondaryForm from "./components/SecondaryForm";
  
@@ -23,7 +23,7 @@ class App extends Component {
       const target = event.target;
       const value = target.type === 'checkbox' ? target.checked : target.value;
       const name = target.name;
-  
+
       this.setState({
         [name]: value
       });
@@ -33,12 +33,13 @@ class App extends Component {
     return (
         <div>
           <Router>
-            <div>
-              <Link to="/">home</Link>
-              <Link to="/next">next</Link>
-            </div>
             <div className="content">
-              <Route exact path="/" render={() => <MainForm state={this.state} handleInputChange={this.handleInputChange} />} />
+              <Route exact path="/" render={() => 
+                  <MainForm 
+                      state={this.state} 
+                      handleInputChange={this.handleInputChange} 
+                  />} 
+              />
               <Route path="/next" component={SecondaryForm} />
             </div>
           </Router>
