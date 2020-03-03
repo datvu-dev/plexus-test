@@ -13,6 +13,9 @@ const MainForm = (props) => {
             case (props.state.storeType == ''):
                 errorMessage = 'Store Type is required'
                 break
+            case (props.state.storeType == 'Metro' && props.state.storeDetails == ''):
+                errorMessage = 'Please provide details for Metro store type'
+                break
             case (props.state.firstName == ''):
                 errorMessage = 'First Name is required'
                 break
@@ -45,12 +48,14 @@ const MainForm = (props) => {
                     </select>
                 </label>
                 </div>
-                <div>
-                    <label>
-                        Provide Details:
-                        <input type="text" name="storeDetails" value={props.state.storeDetails} onChange={props.handleInputChange}/>
-                    </label>
-                </div>
+                { props.state.storeType == 'Metro' &&
+                    <div>
+                        <label>
+                            Provide Details:
+                            <input type="text" name="storeDetails" value={props.state.storeDetails} onChange={props.handleInputChange}/>
+                        </label>
+                    </div>
+                }
                 <div>
                     <label>
                         First Name:
