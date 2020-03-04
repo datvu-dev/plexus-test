@@ -4,7 +4,7 @@ import App from './App';
 import { ToastProvider } from 'react-toast-notifications'
 
 ReactDOM.render(
-    <ToastProvider>
+    <ToastProvider autoDismiss>
         <App/>
     </ToastProvider>
 , document.getElementById('root'));
