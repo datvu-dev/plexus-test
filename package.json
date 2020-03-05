@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "build": "webpack"
+    "build": "webpack",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,11 @@
     "webpack-dev-server": "^3.10.3"
   },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
+    ]
   }
 }
