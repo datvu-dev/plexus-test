@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {withRouter} from "react-router-dom"
 import { useToasts } from 'react-toast-notifications'
+import axios from 'axios'
  
 const SecondaryForm = (props) => {
     const { addToast } = useToasts()
@@ -27,6 +28,30 @@ const SecondaryForm = (props) => {
 
         if (errorMessage == '') {
             // If all inputs are valid, submit the form
+            let formData = {
+                storeType: props.state.storeType,
+                storeDetails: props.state.storeDetails,
+                firstName: props.state.firstName,
+                lastName: props.state.lastName,
+                userRole: props.state.userRole,
+                joinDate: props.state.joinDate,
+                isInVictoria: props.state.isInVictoria,
+                whereInVictoria: props.state.whereInVictoria
+            }
+
+            axios({
+                method: 'post',
+                url: 'https://webhook.site/4a21eba1-29d9-4b3c-adc5-2b178341bdfb',
+                data: formData,
+                })
+                .then(function (response) {
+                    //handle success
+                    // console.log(response)
+                })
+                .catch(function (response) {
+                    //handle error
+                    // console.log(response)
+            })
         } else {
             // Otherwise, show error message
             addToast(errorMessage, { appearance: 'error' })
