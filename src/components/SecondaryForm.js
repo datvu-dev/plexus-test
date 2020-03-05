@@ -39,10 +39,10 @@ const SecondaryForm = (props) => {
                 <div className="question" id="user-role">
                     <label>What is the users role?</label>
                     <select name="userRole" value={props.state.userRole} onChange={props.handleInputChange}>
-                        <option value="">-- please choose --</option>
-                        <option value="Dev">Dev</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Student">Student</option>
+                        <option></option>
+                        <option>Dev</option>
+                        <option>Manager</option>
+                        <option>Student</option>
                     </select>
                 </div>
                 <div className="question" id="join-date">

@@ -40,11 +40,11 @@ const MainForm = (props) => {
                 <div className="question" id="store-type">
                     <label>Store Type</label>
                     <select name="storeType" value={props.state.storeType} onChange={props.handleInputChange}>
-                        <option value="">-- please choose --</option>
-                        <option value="Mall">Mall</option>
-                        <option value="Metro">Metro</option>
-                        <option value="Arcade">Arcade</option>
-                        <option value="Centre">Centre</option>
+                        <option></option>
+                        <option>Mall</option>
+                        <option>Metro</option>
+                        <option>Arcade</option>
+                        <option>Centre</option>
                     </select>
                 </div>
                 { props.state.storeType == 'Metro' &&
