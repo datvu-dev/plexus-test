@@ -36,24 +36,20 @@ const SecondaryForm = (props) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>
-                        What is the users role? 
-                        <select name="userRole" value={props.state.userRole} onChange={props.handleInputChange}>
-                            <option value="">-- please choose --</option>
-                            <option value="Dev">Dev</option>
-                            <option value="Manager">Manager</option>
-                            <option value="Student">Student</option>
-                        </select>
-                    </label>
+                <div className="question" id="user-role">
+                    <label>What is the users role?</label>
+                    <select name="userRole" value={props.state.userRole} onChange={props.handleInputChange}>
+                        <option value="">-- please choose --</option>
+                        <option value="Dev">Dev</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Student">Student</option>
+                    </select>
                 </div>
-                <div>
-                    <label>
-                        When did the user first join?
-                        <input type="date" name="joinDate" value={props.state.joinDate} onChange={props.handleInputChange}/>
-                    </label>
+                <div className="question" id="join-date">
+                    <label>When did the user first join?</label>
+                    <input type="date" name="joinDate" value={props.state.joinDate} onChange={props.handleInputChange}/>
                 </div>
-                <div>
+                <div className="question" id="is-in-Victoria">
                     <p>Is this person located in Victoria?</p>
                     <label>
                         <input type="radio" id="yes" name="isInVictoria" value="yes" 
@@ -71,11 +67,9 @@ const SecondaryForm = (props) => {
                     </label>
                 </div>
                 { props.state.isInVictoria == 'yes' &&
-                    <div>
-                        <label>
-                            Where in Victoria?
-                            <input type="text" name="whereInVictoria" value={props.state.whereInVictoria} onChange={props.handleInputChange} />
-                        </label>
+                    <div className="question" id="user-location">
+                        <label>Where in Victoria?</label>
+                        <input type="text" name="whereInVictoria" value={props.state.whereInVictoria} onChange={props.handleInputChange} />
                     </div>
                 }           
                 <button onClick={goBack}>Back</button>
