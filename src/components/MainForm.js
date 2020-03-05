@@ -37,9 +37,8 @@ const MainForm = (props) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <div>
-                <label>
-                    Store Type:
+                <div className="question" id="store-type">
+                    <label>Store Type</label>
                     <select name="storeType" value={props.state.storeType} onChange={props.handleInputChange}>
                         <option value="">-- please choose --</option>
                         <option value="Mall">Mall</option>
@@ -47,45 +46,36 @@ const MainForm = (props) => {
                         <option value="Arcade">Arcade</option>
                         <option value="Centre">Centre</option>
                     </select>
-                </label>
                 </div>
                 { props.state.storeType == 'Metro' &&
-                    <div>
-                        <label>
-                            Provide Details:
-                            <input type="text" name="storeDetails" value={props.state.storeDetails} onChange={props.handleInputChange}/>
-                        </label>
+                    <div className="question" id="store-details">
+                        <label>Provide Details</label>
+                        <input type="text" name="storeDetails" value={props.state.storeDetails} onChange={props.handleInputChange}/>
                     </div>
                 }
-                <div>
-                    <label>
-                        Search user:
-                        <Autocomplete
-                            getItemValue={(item) => item.fullname}
-                            items={props.state.userList}
-                            shouldItemRender={(item, value) => item.fullname.toLowerCase().indexOf(value.toLowerCase()) > -1}
-                            renderItem={(item, isHighlighted) =>
-                                <div key={props.state.userList.indexOf(item)} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-                                    {item.fullname}
-                                </div>
-                            }
-                            name="userLookUp" 
-                            value={props.state.userLookUp} onChange={props.handleInputChange}
-                            onSelect={(value, item) => props.handleUserSelection(value, item)}
-                        />
-                    </label>
+                <div className="question" id="user-lookup">
+                    <label>Search User</label>
+                    <Autocomplete
+                        getItemValue={(item) => item.fullname}
+                        items={props.state.userList}
+                        shouldItemRender={(item, value) => item.fullname.toLowerCase().indexOf(value.toLowerCase()) > -1}
+                        renderItem={(item, isHighlighted) =>
+                            <div key={props.state.userList.indexOf(item)} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+                                {item.fullname}
+                            </div>
+                        }
+                        name="userLookUp" 
+                        value={props.state.userLookUp} onChange={props.handleInputChange}
+                        onSelect={(value, item) => props.handleUserSelection(value, item)}
+                    />
                 </div>
-                <div>
-                    <label>
-                        First Name:
-                        <input type="text" name="firstName" value={props.state.firstName} onChange={props.handleInputChange} disabled/>
-                    </label>
+                <div className="question" id="first-name">
+                    <label>First Name</label>
+                    <input type="text" name="firstName" value={props.state.firstName} onChange={props.handleInputChange} disabled/>
                 </div>
-                <div>
-                    <label>
-                        Last Name:
-                        <input type="text" name="lastName" value={props.state.lastName} onChange={props.handleInputChange} disabled/>
-                    </label>
+                <div className="question" id="last-name">
+                    <label>Last Name</label>
+                    <input type="text" name="lastName" value={props.state.lastName} onChange={props.handleInputChange} disabled/>
                 </div>
                 <input type="submit" value="Next" />
             </form>
