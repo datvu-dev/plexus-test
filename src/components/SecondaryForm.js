@@ -46,7 +46,7 @@ const SecondaryForm = (props) => {
                 })
                 .then(function (response) {
                     //handle success
-                    // console.log(response)
+                    addToast('Thanks! We received your details.', { appearance: 'success' })
                 })
                 .catch(function (response) {
                     //handle error
