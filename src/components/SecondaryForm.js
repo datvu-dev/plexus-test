@@ -1,8 +1,9 @@
-import React, { Component } from "react"
-import {withRouter} from "react-router-dom"
+import React from "react"
+import $ from 'jquery'
+import { withRouter } from "react-router-dom"
 import { useToasts } from 'react-toast-notifications'
 import axios from 'axios'
-import {Input, Select} from './Input'
+import { Input, Select } from './Input'
 import Label from './Label'
 import Button from './Button'
  
@@ -19,12 +20,14 @@ const SecondaryForm = (props) => {
 
         switch (true) {
             case (props.state.joinDate == ''):
+                $('#join-date input').trigger('focus')
                 errorMessage = 'Please specify when the user joined'
                 break
             case (props.state.isInVictoria == ''):
                 errorMessage = 'Please confirm if the user is in Victoria'
                 break
             case (props.state.isInVictoria == 'yes' && props.state.whereInVictoria == ''):
+                $('#user-location input').trigger('focus')
                 errorMessage = 'Please specify where the user lives in Victoria'
                 break
         }

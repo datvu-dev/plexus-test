@@ -1,8 +1,9 @@
-import React, { Component } from "react"
-import {withRouter} from "react-router-dom"
+import React from "react"
+import $ from 'jquery'
+import { withRouter } from "react-router-dom"
 import { useToasts } from 'react-toast-notifications'
 import Autocomplete from 'react-autocomplete'
-import {Input, Select} from './Input'
+import { Input, Select } from './Input'
 import Label from './Label'
 import Button from './Button'
 
@@ -16,13 +17,16 @@ const MainForm = (props) => {
 
         switch (true) {
             case (props.state.storeType == ''):
+                $('#store-type select').trigger('focus')
                 errorMessage = 'Store Type is required'
                 break
             case (props.state.storeType == 'Metro' && props.state.storeDetails == ''):
+                $('#store-details input').trigger('focus')
                 errorMessage = 'Please provide details for Metro store type'
                 break
             case (props.state.firstName == '' || props.state.lastName == ''):
-                errorMessage = 'First Name and Last Name are required'
+                $('#user-lookup input').trigger('focus')
+                errorMessage = 'Please search for a user'
                 break
         }
 
