@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import {withRouter} from "react-router-dom";
+import React, { Component } from "react"
+import {withRouter} from "react-router-dom"
 import { useToasts } from 'react-toast-notifications'
 import Autocomplete from 'react-autocomplete'
 import {Input, Select} from './Input'
@@ -21,11 +21,8 @@ const MainForm = (props) => {
             case (props.state.storeType == 'Metro' && props.state.storeDetails == ''):
                 errorMessage = 'Please provide details for Metro store type'
                 break
-            case (props.state.firstName == ''):
-                errorMessage = 'First Name is required'
-                break
-            case (props.state.lastName == ''):
-                errorMessage = 'Last Name is required'
+            case (props.state.firstName == '' || props.state.lastName == ''):
+                errorMessage = 'First Name and Last Name are required'
                 break
         }
 
@@ -89,7 +86,7 @@ const MainForm = (props) => {
                 <Button primary type="submit">Next</Button>
             </form>
         </div>
-    );
+    )
 }
  
-export default withRouter(MainForm);
+export default withRouter(MainForm)

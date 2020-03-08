@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import {Route, BrowserRouter as Router, useHistory} from "react-router-dom";
+import React, { Component } from "react"
+import {Route, BrowserRouter as Router, useHistory} from "react-router-dom"
 import Page from './components/Page'
 import Content from './components/Content'
-import MainForm from "./components/MainForm";
-import SecondaryForm from "./components/SecondaryForm";
+import MainForm from "./components/MainForm"
+import SecondaryForm from "./components/SecondaryForm"
 import axios from 'axios'
 
 const initialState = {
@@ -21,13 +21,13 @@ const initialState = {
 
 class App extends Component {
     constructor(props) {
-        super(props);
-        this.state = initialState;
+        super(props)
+        this.state = initialState
 
-        this.handleStateReset = this.handleStateReset.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleUserLookup = this.handleUserLookup.bind(this);
-        this.handleUserSelection = this.handleUserSelection.bind(this);
+        this.handleStateReset = this.handleStateReset.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleUserLookup = this.handleUserLookup.bind(this)
+        this.handleUserSelection = this.handleUserSelection.bind(this)
     }
 
     handleStateReset() {
@@ -35,9 +35,9 @@ class App extends Component {
     }
 
     handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name ? target.name : 'userLookUp';
+        const target = event.target
+        const value = target.type === 'checkbox' ? target.checked : target.value
+        const name = target.name ? target.name : 'userLookUp'
   
         this.setState({
             [name]: value
@@ -100,8 +100,8 @@ class App extends Component {
                     </Content>
                 </Router>
             </Page>
-        );
+        )
     }
 }
  
-export default App;
+export default App

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import {withRouter} from "react-router-dom"
 import { useToasts } from 'react-toast-notifications'
 import axios from 'axios'
@@ -103,7 +103,7 @@ const SecondaryForm = (props) => {
                 <Button type="submit" primary >Submit</Button>
             </form>
         </div>
-    );
+    )
 }
  
 export default withRouter(SecondaryForm)
