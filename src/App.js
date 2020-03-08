@@ -7,16 +7,16 @@ import SecondaryForm from "./components/SecondaryForm";
 import axios from 'axios'
 
 const initialState = {
-  storeType: '',
-  storeDetails: '',
-  userLookUp: '',
-  userList: [],
-  firstName: '',
-  lastName: '',
-  userRole: '',
-  joinDate: '',
-  isInVictoria: '',
-  whereInVictoria: ''
+    storeType: '',
+    storeDetails: '',
+    userLookUp: '',
+    userList: [],
+    firstName: '',
+    lastName: '',
+    userRole: '',
+    joinDate: '',
+    isInVictoria: '',
+    whereInVictoria: ''
 }
 
 class App extends Component {
@@ -35,17 +35,17 @@ class App extends Component {
     }
 
     handleInputChange(event) {
-      const target = event.target;
-      const value = target.type === 'checkbox' ? target.checked : target.value;
-      const name = target.name ? target.name : 'userLookUp';
- 
-      this.setState({
-        [name]: value
-      }, () => {
-        if (name == 'userLookUp') {
-          this.handleUserLookup()
-        }
-      })
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name ? target.name : 'userLookUp';
+  
+        this.setState({
+            [name]: value
+        }, () => {
+            if (name == 'userLookUp') {
+                this.handleUserLookup()
+            }
+        })
     }
 
     handleUserLookup() {
@@ -72,36 +72,36 @@ class App extends Component {
     handleUserSelection(value, item) {
         // Populate selected user into First Name and Last Name
         this.setState({
-          firstName: item.first,
-          lastName: item.last,
-          userLookUp: ''
+            firstName: item.first,
+            lastName: item.last,
+            userLookUp: ''
         })
     }
 
-  render() {
-    return (
-        <Page>
-          <Router>
-            <Content>
-              <Route exact path="/" render={() => 
-                  <MainForm 
-                      state={this.state} 
-                      handleInputChange={this.handleInputChange}
-                      handleUserSelection={this.handleUserSelection}
-                  />} 
-              />
-              <Route path="/next" render={() => 
-                  <SecondaryForm 
-                      state={this.state} 
-                      handleInputChange={this.handleInputChange}
-                      handleStateReset={this.handleStateReset}
-                  />}  
-              />
-            </Content>
-          </Router>
-        </Page>
-    );
-  }
+    render() {
+        return (
+            <Page>
+                <Router>
+                    <Content>
+                        <Route exact path="/" render={() => 
+                            <MainForm 
+                                state={this.state} 
+                                handleInputChange={this.handleInputChange}
+                                handleUserSelection={this.handleUserSelection}
+                            />} 
+                        />
+                        <Route path="/next" render={() => 
+                            <SecondaryForm 
+                                state={this.state} 
+                                handleInputChange={this.handleInputChange}
+                                handleStateReset={this.handleStateReset}
+                            />}  
+                        />
+                    </Content>
+                </Router>
+            </Page>
+        );
+    }
 }
  
 export default App;
