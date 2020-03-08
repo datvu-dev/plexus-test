@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const Page = styled.div`
-    font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
     background: linear-gradient(to right, #4674B1, #2E8FA3);
     position: fixed;
     width: 100%;

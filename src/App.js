@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import {Route, BrowserRouter as Router, useHistory} from "react-router-dom"
+import { Route, BrowserRouter as Router } from "react-router-dom"
+import { ToastProvider } from 'react-toast-notifications'
 import Page from './components/Page'
 import Content from './components/Content'
 import MainForm from "./components/MainForm"
@@ -82,22 +83,24 @@ class App extends Component {
         return (
             <Page>
                 <Router>
-                    <Content>
-                        <Route exact path="/" render={() => 
-                            <MainForm 
-                                state={this.state} 
-                                handleInputChange={this.handleInputChange}
-                                handleUserSelection={this.handleUserSelection}
-                            />} 
-                        />
-                        <Route path="/next" render={() => 
-                            <SecondaryForm 
-                                state={this.state} 
-                                handleInputChange={this.handleInputChange}
-                                handleStateReset={this.handleStateReset}
-                            />}  
-                        />
-                    </Content>
+                    <ToastProvider autoDismiss placement="top-center">
+                        <Content>
+                            <Route exact path="/" render={() => 
+                                <MainForm 
+                                    state={this.state} 
+                                    handleInputChange={this.handleInputChange}
+                                    handleUserSelection={this.handleUserSelection}
+                                />} 
+                            />
+                            <Route path="/next" render={() => 
+                                <SecondaryForm 
+                                    state={this.state} 
+                                    handleInputChange={this.handleInputChange}
+                                    handleStateReset={this.handleStateReset}
+                                />}  
+                            />
+                        </Content>
+                    </ToastProvider>
                 </Router>
             </Page>
         )
