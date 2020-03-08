@@ -6,25 +6,32 @@ import MainForm from "./components/MainForm";
 import SecondaryForm from "./components/SecondaryForm";
 import axios from 'axios'
 
+const initialState = {
+  storeType: '',
+  storeDetails: '',
+  userLookUp: '',
+  userList: [],
+  firstName: '',
+  lastName: '',
+  userRole: '',
+  joinDate: '',
+  isInVictoria: '',
+  whereInVictoria: ''
+}
+
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            storeType: '',
-            storeDetails: '',
-            userLookUp: '',
-            userList: [],
-            firstName: '',
-            lastName: '',
-            userRole: '',
-            joinDate: '',
-            isInVictoria: '',
-            whereInVictoria: ''
-        };
+        this.state = initialState;
 
+        this.handleStateReset = this.handleStateReset.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleUserLookup = this.handleUserLookup.bind(this);
         this.handleUserSelection = this.handleUserSelection.bind(this);
+    }
+
+    handleStateReset() {
+        this.setState({...initialState})
     }
 
     handleInputChange(event) {
@@ -87,6 +94,7 @@ class App extends Component {
                   <SecondaryForm 
                       state={this.state} 
                       handleInputChange={this.handleInputChange}
+                      handleStateReset={this.handleStateReset}
                   />}  
               />
             </Content>
