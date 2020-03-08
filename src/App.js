@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import {Route, BrowserRouter as Router, useHistory} from "react-router-dom";
+import Page from './components/Page'
+import Content from './components/Content'
 import MainForm from "./components/MainForm";
 import SecondaryForm from "./components/SecondaryForm";
 import axios from 'axios'
- 
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -71,9 +73,9 @@ class App extends Component {
 
   render() {
     return (
-        <div>
+        <Page>
           <Router>
-            <div className="content">
+            <Content>
               <Route exact path="/" render={() => 
                   <MainForm 
                       state={this.state} 
@@ -87,9 +89,9 @@ class App extends Component {
                       handleInputChange={this.handleInputChange}
                   />}  
               />
-            </div>
+            </Content>
           </Router>
-        </div>
+        </Page>
     );
   }
 }
