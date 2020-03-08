@@ -4,8 +4,12 @@ const Content = styled.div`
     background: #FFFFFF;
     padding: 15px;
     border-radius: 10px;
-    width: 370px;
+    max-width: 370px;
     margin: 0 auto;
+
+    @media screen and (max-width: 500px) {
+        width: 80%;
+    }
 `
 
 export default Content
