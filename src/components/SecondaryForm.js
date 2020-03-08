@@ -72,7 +72,7 @@ const SecondaryForm = (props) => {
             <form onSubmit={handleSubmit}>
                 <div className="question" id="user-role">
                     <Label>What is the users role?</Label>
-                    <Select name="userRole" value={props.state.userRole} onChange={props.handleInputChange}>
+                    <Select name="userRole" defaultValue={props.state.userRole} onChange={props.handleInputChange}>
                         <option></option>
                         <option>Dev</option>
                         <option>Manager</option>
@@ -81,25 +81,25 @@ const SecondaryForm = (props) => {
                 </div>
                 <div className="question" id="join-date">
                     <Label>When did the user first join?</Label>
-                    <Input type="date" name="joinDate" value={props.state.joinDate} onChange={props.handleInputChange}/>
+                    <Input type="date" name="joinDate" defaultValue={props.state.joinDate} onChange={props.handleInputChange}/>
                 </div>
                 <div className="question" id="is-in-Victoria">
                     <p>Is this person located in Victoria?</p>
                         <Input type="radio" id="yes" name="isInVictoria" value="yes" 
                             onChange={props.handleInputChange} 
-                            checked={props.state.isInVictoria === "yes"} 
+                            defaultChecked={props.state.isInVictoria === "yes"} 
                         /> 
                         Yes
                         <Input type="radio" id="no" name="isInVictoria" value="no" 
                             onChange={props.handleInputChange} 
-                            checked={props.state.isInVictoria === "no"} 
+                            defaultChecked={props.state.isInVictoria === "no"} 
                         /> 
                         No
                 </div>
                 { props.state.isInVictoria == 'yes' &&
                     <div className="question" id="user-location">
                         <Label>Where in Victoria?</Label>
-                        <Input type="text" name="whereInVictoria" value={props.state.whereInVictoria} onChange={props.handleInputChange} />
+                        <Input type="text" name="whereInVictoria" defaultValue={props.state.whereInVictoria} onChange={props.handleInputChange} />
                     </div>
                 }           
                 <Button onClick={goBack}>Back</Button>
