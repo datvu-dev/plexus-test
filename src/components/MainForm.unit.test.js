@@ -21,6 +21,8 @@ const data2 = {
     lastName: ''
 }
 
+const clickFunc = jest.fn()
+
 describe('Test rendering of text fields in <MainForm />', () => {
     let component 
 
@@ -95,4 +97,31 @@ describe('Test dynamic display of text fields in <MainForm />', () => {
 
         expect(component.find('.question')).toHaveLength(5)
     })
-  })
+})
+
+describe('Test event on input fields in <MainForm />', () => {
+    let component 
+
+    beforeEach(() => {
+        component = mount(
+            <ToastProvider>
+                <Router>
+                    <MainForm state={data2} handleInputChange={clickFunc}/>
+                </Router>
+            </ToastProvider>
+        )
+    })
+
+    it('calls for handleInputChange function props when Store Type is changed', () => {
+        component.find('#store-type select').simulate('change')
+
+        expect(clickFunc).toHaveBeenCalled()
+    })
+
+    it('calls for handleInputChange function props when Search User is changed', () => {
+        component.find('#user-lookup input').simulate('change')
+
+        expect(clickFunc).toHaveBeenCalled()
+    })
+
+})
