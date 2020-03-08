@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import {withRouter} from "react-router-dom"
 import { useToasts } from 'react-toast-notifications'
 import axios from 'axios'
+import {Input, Select} from './Input'
+import Label from './Label'
+import Button from './Button'
  
 const SecondaryForm = (props) => {
     const { addToast } = useToasts()
@@ -62,43 +65,39 @@ const SecondaryForm = (props) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <div className="question" id="user-role">
-                    <label>What is the users role?</label>
-                    <select name="userRole" value={props.state.userRole} onChange={props.handleInputChange}>
+                    <Label>What is the users role?</Label>
+                    <Select name="userRole" value={props.state.userRole} onChange={props.handleInputChange}>
                         <option></option>
                         <option>Dev</option>
                         <option>Manager</option>
                         <option>Student</option>
-                    </select>
+                    </Select>
                 </div>
                 <div className="question" id="join-date">
-                    <label>When did the user first join?</label>
-                    <input type="date" name="joinDate" value={props.state.joinDate} onChange={props.handleInputChange}/>
+                    <Label>When did the user first join?</Label>
+                    <Input type="date" name="joinDate" value={props.state.joinDate} onChange={props.handleInputChange}/>
                 </div>
                 <div className="question" id="is-in-Victoria">
                     <p>Is this person located in Victoria?</p>
-                    <label>
-                        <input type="radio" id="yes" name="isInVictoria" value="yes" 
+                        <Input type="radio" id="yes" name="isInVictoria" value="yes" 
                             onChange={props.handleInputChange} 
                             checked={props.state.isInVictoria === "yes"} 
-                        />
+                        /> 
                         Yes
-                    </label>
-                    <label>
-                        <input type="radio" id="no" name="isInVictoria" value="no" 
+                        <Input type="radio" id="no" name="isInVictoria" value="no" 
                             onChange={props.handleInputChange} 
                             checked={props.state.isInVictoria === "no"} 
-                        />
+                        /> 
                         No
-                    </label>
                 </div>
                 { props.state.isInVictoria == 'yes' &&
                     <div className="question" id="user-location">
-                        <label>Where in Victoria?</label>
-                        <input type="text" name="whereInVictoria" value={props.state.whereInVictoria} onChange={props.handleInputChange} />
+                        <Label>Where in Victoria?</Label>
+                        <Input type="text" name="whereInVictoria" value={props.state.whereInVictoria} onChange={props.handleInputChange} />
                     </div>
                 }           
-                <button onClick={goBack}>Back</button>
-                <input type="submit" value="Submit" />
+                <Button onClick={goBack}>Back</Button>
+                <Button type="submit" primary >Submit</Button>
             </form>
         </div>
     );
