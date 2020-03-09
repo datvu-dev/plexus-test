@@ -74,7 +74,7 @@ const MainForm = (props) => {
                         }
                         wrapperStyle={{display: 'block'}}
                         name="userLookUp" 
-                        defaultValue={props.state.userLookUp} 
+                        value={props.state.userLookUp} 
                         onChange={props.handleInputChange}
                         onSelect={(value, item) => props.handleUserSelection(value, item)}
                     />
