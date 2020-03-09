@@ -13,6 +13,10 @@ const baseInputStyles = css`
     &:focus {
       border-bottom: 1px solid #0077B5;
     }
+
+    & + div {
+        padding: 0 !important;
+    }
 `
 
 export const Input = styled.input`
