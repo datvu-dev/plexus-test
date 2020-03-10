@@ -102,7 +102,7 @@ const SecondaryForm = (props) => {
                         <Input type="text" name="whereInVictoria" value={props.state.whereInVictoria} onChange={props.handleInputChange} />
                     </div>
                 }           
-                <Button onClick={goBack}>Back</Button>
+                <Button onClick={goBack} type="button">Back</Button>
                 <Button type="submit" primary >Submit</Button>
             </form>
         </div>
