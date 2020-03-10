@@ -6,8 +6,8 @@ const baseInputStyles = css`
     border: none;
     border-bottom: ${props => props.disabled ? "1px dotted #9e9e9e" : "1px solid #dcd9d9"};
     outline: none;
-    width: ${props => props.type == "radio" ? "auto" : "100%"};;
-    padding: 10px 0;
+    width: ${props => props.type == "radio" ? "auto" : "100%"};
+    height: ${props => props.type == "radio" ? "auto" : "40px"};
     margin-bottom: 20px;
 
     &:focus {
