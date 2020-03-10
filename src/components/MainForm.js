@@ -44,7 +44,7 @@ const MainForm = (props) => {
             <form onSubmit={handleSubmit}>
                 <div className="question" id="store-type">
                     <Label>Store Type</Label>
-                    <Select name="storeType" defaultValue={props.state.storeType} onChange={props.handleInputChange}>
+                    <Select name="storeType" value={props.state.storeType} onChange={props.handleInputChange}>
                         <option></option>
                         <option>Mall</option>
                         <option>Metro</option>
@@ -55,7 +55,7 @@ const MainForm = (props) => {
                 { props.state.storeType == 'Metro' &&
                     <div className="question" id="store-details">
                         <Label>Provide Details</Label>
-                        <Input type="text" name="storeDetails" defaultValue={props.state.storeDetails} onChange={props.handleInputChange}/>
+                        <Input type="text" name="storeDetails" value={props.state.storeDetails} onChange={props.handleInputChange}/>
                     </div>
                 }
                 <div className="question" id="user-lookup">
@@ -81,11 +81,11 @@ const MainForm = (props) => {
                 </div>
                 <div className="question" id="first-name">
                     <Label>First Name</Label>
-                    <Input type="text" name="firstName" defaultValue={props.state.firstName} onChange={props.handleInputChange} disabled/>
+                    <Input type="text" name="firstName" value={props.state.firstName} onChange={props.handleInputChange} disabled/>
                 </div>
                 <div className="question" id="last-name">
                     <Label>Last Name</Label>
-                    <Input type="text" name="lastName" defaultValue={props.state.lastName} onChange={props.handleInputChange} disabled/>
+                    <Input type="text" name="lastName" value={props.state.lastName} onChange={props.handleInputChange} disabled/>
                 </div>
                 <Button primary type="submit">Next</Button>
             </form>

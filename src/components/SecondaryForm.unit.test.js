@@ -16,6 +16,8 @@ const data2 = {
     whereInVictoria: 'Canterbury'
 }
 
+const testFunc = jest.fn()
+
 describe('Test rendering of form elements in <SecondaryForm />', () => {
     let component 
 
@@ -23,7 +25,7 @@ describe('Test rendering of form elements in <SecondaryForm />', () => {
         component = mount(
             <ToastProvider>
                 <Router>
-                    <SecondaryForm state={data2}/>
+                    <SecondaryForm state={data2} handleInputChange={testFunc}/>
                 </Router>
             </ToastProvider>
         )
@@ -55,7 +57,7 @@ describe('Test dynamic display of text fields in <SecondaryForm />', () => {
         const component = mount(
             <ToastProvider>
                 <Router>
-                    <SecondaryForm state={data1}/>
+                    <SecondaryForm state={data1} handleInputChange={testFunc}/>
                 </Router>
             </ToastProvider>
         )
@@ -67,7 +69,7 @@ describe('Test dynamic display of text fields in <SecondaryForm />', () => {
         const component = mount(
             <ToastProvider>
                 <Router>
-                    <SecondaryForm state={data1}/>
+                    <SecondaryForm state={data1} handleInputChange={testFunc}/>
                 </Router>
             </ToastProvider>
         )
@@ -79,7 +81,7 @@ describe('Test dynamic display of text fields in <SecondaryForm />', () => {
         const component = mount(
             <ToastProvider>
                 <Router>
-                    <SecondaryForm state={data2}/>
+                    <SecondaryForm state={data2} handleInputChange={testFunc}/>
                 </Router>
             </ToastProvider>
         )

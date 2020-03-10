@@ -21,7 +21,7 @@ const data2 = {
     lastName: ''
 }
 
-const clickFunc = jest.fn()
+const testFunc = jest.fn()
 
 describe('Test rendering of text fields in <MainForm />', () => {
     let component 
@@ -30,7 +30,7 @@ describe('Test rendering of text fields in <MainForm />', () => {
         component = mount(
             <ToastProvider>
                 <Router>
-                    <MainForm state={data2}/>
+                    <MainForm state={data2} handleInputChange={testFunc}/>
                 </Router>
             </ToastProvider>
         )
@@ -66,7 +66,7 @@ describe('Test dynamic display of text fields in <MainForm />', () => {
         const component = mount(
             <ToastProvider>
                 <Router>
-                    <MainForm state={data1}/>
+                    <MainForm state={data1} handleInputChange={testFunc}/>
                 </Router>
             </ToastProvider>
         )
@@ -78,7 +78,7 @@ describe('Test dynamic display of text fields in <MainForm />', () => {
         const component = mount(
             <ToastProvider>
                 <Router>
-                    <MainForm state={data1}/>
+                    <MainForm state={data1} handleInputChange={testFunc}/>
                 </Router>
             </ToastProvider>
         )
@@ -90,7 +90,7 @@ describe('Test dynamic display of text fields in <MainForm />', () => {
         const component = mount(
             <ToastProvider>
                 <Router>
-                    <MainForm state={data2}/>
+                    <MainForm state={data2} handleInputChange={testFunc}/>
                 </Router>
             </ToastProvider>
         )
@@ -106,7 +106,7 @@ describe('Test event on input fields in <MainForm />', () => {
         component = mount(
             <ToastProvider>
                 <Router>
-                    <MainForm state={data2} handleInputChange={clickFunc}/>
+                    <MainForm state={data2} handleInputChange={testFunc}/>
                 </Router>
             </ToastProvider>
         )
@@ -115,13 +115,13 @@ describe('Test event on input fields in <MainForm />', () => {
     it('calls for handleInputChange function props when Store Type is changed', () => {
         component.find('#store-type select').simulate('change')
 
-        expect(clickFunc).toHaveBeenCalled()
+        expect(testFunc).toHaveBeenCalled()
     })
 
     it('calls for handleInputChange function props when Search User is changed', () => {
         component.find('#user-lookup input').simulate('change')
 
-        expect(clickFunc).toHaveBeenCalled()
+        expect(testFunc).toHaveBeenCalled()
     })
 
 })
