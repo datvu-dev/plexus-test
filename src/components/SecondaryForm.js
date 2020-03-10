@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useRef} from "react"
 import $ from 'jquery'
 import { withRouter } from "react-router-dom"
 import { useToasts } from 'react-toast-notifications'
@@ -8,11 +8,22 @@ import Label from './Label'
 import Button from './Button'
  
 const SecondaryForm = (props) => {
+    const buttonEl = useRef(null)
     const { addToast } = useToasts()
     let errorMessage = ''
 
     const goBack = () => {
         props.history.push('/')
+    }
+
+    const setSubmitButton = (status) => {
+        if (status == 'disabled') {
+            buttonEl.current.setAttribute("disabled", "disabled")
+            buttonEl.current.innerHTML = "Submitting"
+        } else {
+            buttonEl.current.removeAttribute("disabled")
+            buttonEl.current.innerHTML = "Submit"
+        }
     }
 
     const handleSubmit = (event) => {
@@ -45,6 +56,8 @@ const SecondaryForm = (props) => {
                 whereInVictoria: props.state.whereInVictoria
             }
 
+            setSubmitButton('disabled')
+
             axios({
                 method: 'post',
                 url: 'https://webhook.site/4a21eba1-29d9-4b3c-adc5-2b178341bdfb',
@@ -52,6 +65,7 @@ const SecondaryForm = (props) => {
                 })
                 .then(function (response) {
                     //handle success
+                    setSubmitButton('enabled')
                     props.history.push('/')
                     props.handleStateReset()
 
@@ -103,7 +117,7 @@ const SecondaryForm = (props) => {
                     </div>
                 }           
                 <Button onClick={goBack} type="button">Back</Button>
-                <Button type="submit" primary >Submit</Button>
+                <Button type="submit" primary ref={buttonEl}>Submit</Button>
             </form>
         </div>
     )
