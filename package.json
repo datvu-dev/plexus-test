@@ -21,7 +21,7 @@
   "homepage": "https://github.com/datvu-dev/plexus-test#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "react": "^16.13.0",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.13.0",
